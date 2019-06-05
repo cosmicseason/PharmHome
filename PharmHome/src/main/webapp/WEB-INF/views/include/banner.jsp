@@ -5,7 +5,7 @@
 <!--banner-->
   <section id="banner" class="banner">
     <div class="bg-color">
-      <nav class="navbar navbar-default navbar-fixed-top">
+      <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div class="col-md-12">
             <div class="navbar-header">
@@ -16,11 +16,17 @@
 				      </button>
               <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/resources/img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
             </div>
-            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+            <div class="collapse navbar-collapse navbar-right" id="navbarNavDropdown">
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#banner">Home</a></li>
                 <li class=""><a href="about.do">About</a></li>
-                <li class=""><a href="blog.do">blog</a></li>
+                <li class="nav-item dropdown">
+                <a href="blog.do" class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">>blog</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogQA.do">Q&A</a>
+		          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogStory.do">Story</a>
+		        </div>
+                </li>
                 <li class=""><a href="contact.do">Contact</a></li>
               </ul>
             </div>
