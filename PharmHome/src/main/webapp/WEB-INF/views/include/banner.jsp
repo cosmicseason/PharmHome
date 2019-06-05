@@ -20,8 +20,10 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="#banner">Home</a></li>
                 <li class=""><a href="about.do">About</a></li>
-                <li class=""><a href="blog.do">blog</a></li>
-                <li class=""><a href="contact.do">Contact</a></li>
+                <li class="">
+                <a href="blog.do">blog</a>
+                </li>
+                <li class=""><a href="contact.do" >Contact</a></li>
               </ul>
             </div>
           </div>
