@@ -61,6 +61,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.joo.pharmhome" />
+	<context:component-scan base-package="com.joo.pharmhome.users.*" />
 	<context:component-scan base-package="com.joo.pharmhome.about.*" />
 	<context:component-scan base-package="com.joo.pharmhome.blog.*" />
 	

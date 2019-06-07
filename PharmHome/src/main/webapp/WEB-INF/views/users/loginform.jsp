@@ -9,39 +9,30 @@
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
 <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-<title>blog</title>
+<title>loginform</title>
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+<body>
 <!-- 상단메뉴 -->
 <jsp:include page="../include/banner.jsp"/>
-
-<!--blog-->
-<section id="blog" class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="section-title">
-            <h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogQA.do">Q&A</a></h2>
-            <hr class="botm-line">
-           	<!-- Q&A 게시판 게시글 제목 / 글쓴이 정도만 테이블로 보여주기 -->
-          </div>
-          <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="section-title">
-            <h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogStory.do">다녀간 이야기</a></h2>
-            <hr class="botm-line">
-            <!-- 손님들 평가 게시판 게시글 글쓴이/내용을 간략하게 테이블로 보여주기 -->
-          </div>
-        </div>       
-      </div>
-    </div>
-  </section>
-  <!--/ about-->
-  <!-- 하단메뉴 -->
+<!-- loginform -->
+<form action="${pageContext.request.contextPath}/users/login.do" method="post">
+	<input type="hidden" name="logformurl" value="${url}" />
+	<label for="userid">ID</label>
+	<input type="text" name="userid" id="userid" />
+	<label for="userpwd">PASSWORD</label>
+	<input type="text" name="userpwd" id="userpwd" />
+	<button type="submit">로그인</button>
+	<span></span>
+</form>
+<a href="${pageContext.request.contextPath}/users/signupform.do"/>회원가입</a><br/>
+<a href="">아이디 찾기</a>
+<a href="">비밀번호 찾기</a>
+<!-- 하단메뉴 -->
 <jsp:include page="../include/footer.jsp"/>
 </body>
 </html>

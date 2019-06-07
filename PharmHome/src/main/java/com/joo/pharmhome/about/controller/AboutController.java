@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AboutController {
 
-	@RequestMapping("/about")
+	@RequestMapping("/about/about")
 	public String aboutIndex(){
 		return "about/about";
 	}
