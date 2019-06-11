@@ -20,13 +20,13 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="${pageContext.request.contextPath}/home.do">Home</a></li>
                 <li class=""><a href="${pageContext.request.contextPath}/about/about.do">About</a></li>
-                <li class="nav-item
-                 dropdown">
-                <a  class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/blog/blog.do" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">blog</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-		          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogQA.do">Q&A</a>
-		          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogStory.do">Story</a>
-		        </div>
+                <!-- dropdown navbar error -->
+                <li class="nav-item dropdown">
+	                <a  class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/blog/blog.do" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">blog</a>
+	                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogQA.do">Q&A</a>
+			          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogStory.do">Story</a>
+			        </div>
                 </li>
                 <li class=""><a href="${pageContext.request.contextPath}/contact/contact.do">Contact</a></li>
               </ul>
@@ -43,7 +43,7 @@
             <div class="banner-text text-center">
               <h1 class="white">Pharmacy at your desk!!</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
-              <a href="${pageContext.request.contextPath}/users/loginform.do" class="btn btn-appoint">login</a>
+              <a href="${pageContext.request.contextPath}/users/loginform.do" class="btn btn-appoint">Login</a>
             </div>
             <div class="overlay-detail text-center">
               <a href="#service"><i class="fa fa-angle-down"></i></a>

@@ -27,6 +27,8 @@ public class UsersController {
 			url=cPath+"/";
 		}
 		
+		System.out.println(url);
+		
 		request.setAttribute("url", url);
 		
 		return "users/loginform";
@@ -37,11 +39,27 @@ public class UsersController {
 	public ModelAndView usersLogin(HttpServletRequest request, HttpSession session, @ModelAttribute UsersDto dto, ModelAndView mView){
 		
 		
-		
 	
 		mView.setViewName("");
 		
 		return mView;
 	}
+	
+	@RequestMapping("/users/signupform")
+	public String usersSignupform(){
+		return "users/signupform";
+	}
+	
+	@RequestMapping(value="/users/signup", method=RequestMethod.POST)
+	public ModelAndView usersSignup(ModelAndView mView, @ModelAttribute UsersDto dto){
+		//폼 내용 : dto에 들어있음
+		//회원가입 비즈니스 로직
+		//view page 정보를 ModelAndView 객체에 담음
+		
+		//응답하기
+		return mView;
+	}
+		
+	
 
 }

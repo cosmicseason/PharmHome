@@ -1,5 +1,3 @@
-CREATE SEQUENCE board_file_seq;
-
 create table pharm_user(
 user_num NUMBER PRIMARY KEY,
 id	VARCHAR2(100),
@@ -9,5 +7,5 @@ email VARCHAR2(200),
 regdate DATE
 );
 
-CREATE SEQUESNCE pharm_user_seq;
+CREATE SEQUENCE pharm_user_seq;
 
