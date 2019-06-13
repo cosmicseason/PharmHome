@@ -3,6 +3,7 @@ package com.joo.pharmhome.users.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.joo.pharmhome.users.service.UsersService;
 @Controller
 public class UsersController {
 
+	@Autowired
 	private UsersService service;
 	
 	@RequestMapping("/users/loginform")
@@ -54,7 +56,9 @@ public class UsersController {
 	public ModelAndView usersSignup(ModelAndView mView, @ModelAttribute UsersDto dto){
 		//폼 내용 : dto에 들어있음
 		//회원가입 비즈니스 로직
+		service.addUser(mView, dto);
 		//view page 정보를 ModelAndView 객체에 담음
+		mView.setViewName("users/greeting");
 		
 		//응답하기
 		return mView;

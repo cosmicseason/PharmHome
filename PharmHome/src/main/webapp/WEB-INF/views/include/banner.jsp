@@ -4,7 +4,7 @@
 
 <!--banner-->
   <section id="banner" class="banner">
-    <div class="bg-color">
+    <div class="bg-color">b
       <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-light bg-light">
         <div class="container">
           <div class="col-md-12">
