@@ -18,14 +18,14 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public void addUser(ModelAndView mView, UsersDto dto) {
 		//dto에 저장된 비밀번호를 암호화 해서
-		String plainText=dto.getPwd();
+		String plainText=dto.getUserPwd();
 		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
 		//암호화된 비밀번호를 dto에 넣고
-		dto.setPwd(encoder.encode(plainText));
+		dto.setUserPwd(encoder.encode(plainText));
 		//DB에 저장한다.
 		usersDao.insertUser(dto);
-		//가입된 아이디를 request에 담기
-		mView.addObject("userId", dto.getId());
+		//가입된 아이디를 ModelAndView 객체에 담기
+		mView.addObject("userId", dto.getUserId());
 	}
 
 	

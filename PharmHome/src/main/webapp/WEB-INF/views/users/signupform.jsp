@@ -30,6 +30,8 @@
 		<br/>
 		<label for="userPwd">비밀번호</label>
 		<input type="password" name="userPwd" id="userPwd"/><br/>
+		<label for="userAddr">주소</label>
+		<input type="email" name="userAddr" id="userAddr" /><br/>
 		<label for="userEmail">이메일</label>
 		<input type="email" name="userEmail" id="userEmail" /><br/>
 		<button type="submit">가입</button>

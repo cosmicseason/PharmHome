@@ -3,8 +3,8 @@
 <mapper namespace="users">
 	<insert id="insertUser" parameterType="usersDto">
 		INSERT INTO pharm_user
-		(user_num, id, pwd, addr, email, regdate)
-		VALUES(pharm_user_seq.NEXTVAL, #{id}, #{pwd}, #{addr}, #{email}, SYSDATE)
+		(userNum, userId, userPwd, userAddr, userEmail, userRegdate)
+		VALUES(pharm_user_seq.NEXTVAL, #{userId}, #{userPwd}, #{userAddr}, #{userEmail}, SYSDATE)
 	</insert>
 
 
