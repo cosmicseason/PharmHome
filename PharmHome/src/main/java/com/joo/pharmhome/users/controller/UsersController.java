@@ -39,10 +39,12 @@ public class UsersController {
 
 	@RequestMapping(value="/users/login", method=RequestMethod.POST)
 	public ModelAndView usersLogin(HttpServletRequest request, HttpSession session, @ModelAttribute UsersDto dto, ModelAndView mView){
+		//UserService를 이용해서 로그인 관련 비즈니스 로직 처리
+		 //입력받은 id와 pwd가 DB에 있는 id와 pwd가 일치하는지 검사
+		 //입력받은 id와 pwd가 DB와 같으면 session영역에 id값을 저장
+		service.validUser(session, dto, mView);
 		
-		
-	
-		mView.setViewName("");
+		mView.setViewName("users/login");
 		
 		return mView;
 	}

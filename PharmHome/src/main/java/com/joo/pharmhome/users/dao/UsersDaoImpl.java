@@ -19,4 +19,10 @@ public class UsersDaoImpl implements UsersDao {
 		
 	}
 
+	@Override
+	public UsersDto getData(int userNum) {
+		UsersDto dto = session.selectOne("users.getData", userNum);
+		return dto;
+	}
+
 }
