@@ -20,8 +20,8 @@ public class UsersDaoImpl implements UsersDao {
 	}
 
 	@Override
-	public UsersDto getData(int userNum) {
-		UsersDto dto = session.selectOne("users.getData", userNum);
+	public UsersDto getData(String inputId) {
+		UsersDto dto = session.selectOne("users.getData", inputId);
 		return dto;
 	}
 

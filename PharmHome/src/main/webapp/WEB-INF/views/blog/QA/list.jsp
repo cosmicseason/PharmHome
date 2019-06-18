@@ -9,7 +9,7 @@
 <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
 <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
 
-<title>loginform</title>
+<title>Insert title here</title>
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
@@ -18,21 +18,27 @@
 </head>
 <body>
 <!-- 상단메뉴 -->
-<jsp:include page="../include/banner.jsp"/>
-<!-- loginform -->
-<form action="${pageContext.request.contextPath}/users/login.do" method="post">
-	<input type="hidden" name="logformurl" value="${url}" />
-	<label for="userId">ID</label>
-	<input type="text" name="userId" id="userId" />
-	<label for="userPwd">PASSWORD</label>
-	<input type="password" name="userPwd" id="userPwd" />
-	<button type="submit">로그인</button>
-	<span></span>
-</form>
-<a href="${pageContext.request.contextPath}/users/signupform.do"/>회원가입</a><br/>
-<a href="">아이디 찾기</a>
-<a href="">비밀번호 찾기</a>
+<jsp:include page="../../include/banner.jsp"/>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2">번호</div>
+		<div class="col-xs-5">작성자</div>
+		<div class="col-xs-3">제목</div>
+		<div class="col-xs-2">등록일</div>
+		<div class="col-xs-2">조회수</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-xs-2"></div>
+		<div class="col-xs-5"></div>
+		<div class="col-xs-3"></div>
+		<div class="col-xs-2"></div>
+		<div class="col-xs-2"></div>
+	</div>
+</div>
+
 <!-- 하단메뉴 -->
-<jsp:include page="../include/footer.jsp"/>
+<jsp:include page="../../include/footer.jsp"/>
 </body>
 </html>

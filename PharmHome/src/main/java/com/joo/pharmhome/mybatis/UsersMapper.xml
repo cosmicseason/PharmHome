@@ -6,10 +6,10 @@
 		(userNum, userId, userPwd, userAddr, userEmail, userRegdate)
 		VALUES(pharm_user_seq.NEXTVAL, #{userId}, #{userPwd}, #{userAddr}, #{userEmail}, SYSDATE)
 	</insert>
-	<select id="getData" parameterType="int" resultType="usersDto">
-		SELECT userId, userPwd, userAddr, userEmail, userRegdate
+	<select id="getData" parameterType="string" resultType="usersDto">
+		SELECT userNum, userId, userPwd, userAddr, userEmail, userRegdate
 		FROM pharm_user
-		WHERE userNum=#{userNum}
+		WHERE userId=#{userId}
 	</select>    
  
 </mapper>

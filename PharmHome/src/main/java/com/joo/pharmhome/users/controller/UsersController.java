@@ -43,11 +43,18 @@ public class UsersController {
 		 //입력받은 id와 pwd가 DB에 있는 id와 pwd가 일치하는지 검사
 		 //입력받은 id와 pwd가 DB와 같으면 session영역에 id값을 저장
 		service.validUser(session, dto, mView);
-		
 		mView.setViewName("users/login");
 		
 		return mView;
 	}
+	
+	@RequestMapping("/users/logout")
+	public String usersLogout(HttpSession session){
+		//세션 초기화
+		session.invalidate();
+		return "redirect:/home.do";
+	}
+	
 	
 	@RequestMapping("/users/signupform")
 	public String usersSignupform(){
@@ -65,7 +72,5 @@ public class UsersController {
 		//응답하기
 		return mView;
 	}
-		
 	
-
 }

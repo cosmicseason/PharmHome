@@ -6,5 +6,5 @@ public interface UsersDao {
 	//DB에 회원 정보 저장
 	public void insertUser(UsersDto dto);
 	//한명의 회원 정보 읽어오기
-	public UsersDto getData(int userNum);
+	public UsersDto getData(String inputId);
 }

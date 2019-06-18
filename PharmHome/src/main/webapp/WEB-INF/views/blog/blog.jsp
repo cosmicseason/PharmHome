@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="section-title">
-            <h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogQA.do">Q&A</a></h2>
+            <h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogQAList.do">Q&A</a></h2>
             <hr class="botm-line">
            	<!-- Q&A 게시판 게시글 제목 / 글쓴이 정도만 테이블로 보여주기 -->
           </div>

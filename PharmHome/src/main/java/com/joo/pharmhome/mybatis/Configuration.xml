@@ -5,10 +5,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-co
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.joo.pharmhome.users.dto.UsersDto" alias="usersDto"/>
+		<typeAlias type="com.joo.pharmhome.blog.dto.BlogQADto" alias="qaDto"/>
 	</typeAliases>
 		
 	<mappers>
 		<mapper resource="com/joo/pharmhome/mybatis/UsersMapper.xml"/>
 		<mapper resource="com/joo/pharmhome/mybatis/BlogMapper.xml"/>
+		<mapper resource="com/joo/pharmhome/mybatis/BlogQAMapper.xml"/>
 	</mappers>
 </configuration>

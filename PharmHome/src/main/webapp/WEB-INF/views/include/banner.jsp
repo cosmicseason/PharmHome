@@ -43,7 +43,16 @@
             <div class="banner-text text-center">
               <h1 class="white">Pharmacy at your desk!!</h1>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
-              <a href="${pageContext.request.contextPath}/users/loginform.do" class="btn btn-appoint">Login</a>
+              <c:choose>
+              	<c:when test="${empty userId}">
+              		<a href="${pageContext.request.contextPath}/users/loginform.do" class="btn btn-appoint">Login</a>
+              	</c:when>
+              	<c:otherwise>
+              		<a href="${pageContext.request.contextPath}/users/logout.do" class="btn btn-appoint">Logout</a>
+              	</c:otherwise>
+              
+              </c:choose>
+              
             </div>
             <div class="overlay-detail text-center">
               <a href="#service"><i class="fa fa-angle-down"></i></a>
