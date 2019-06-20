@@ -5,6 +5,10 @@
 		SELECT qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount
 		FROM pharm_blog_qa
 	</select>
-
+	<insert id="insertContents" parameterType="qaDto">
+		INSERT INTO pharm_blog_qa
+		(qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount)
+		VALUES(pharm_blog_qa_seq.NEXTVAL, #{qaWriter}, #{qaTitle}, #{qaContents}, SYSDATE, #{qaViewCount})		
+	</insert>
 
 </mapper>

@@ -20,4 +20,11 @@ public class BlogQADaoImpl implements BlogQADao {
 		
 		return qalist;
 	}
+
+	@Override
+	public void insertContents(BlogQADto qadto) {
+		
+		session.insert("blogQA.insertContents", qadto);
+		
+	}
 }

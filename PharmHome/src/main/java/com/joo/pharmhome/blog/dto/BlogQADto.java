@@ -6,7 +6,7 @@ public class BlogQADto {
 	private String qaTitle;
 	private String qaContents;
 	private String qaRegdate;
-	private int viewCount;
+	private int qaViewCount;
 	
 	//페이징 처리를 위한 필드
 	private int startRowNum;
@@ -16,7 +16,7 @@ public class BlogQADto {
 	private int nextNum;
 	//생성자
 	public BlogQADto(){}
-	public BlogQADto(int qaNum, String qaWriter, String qaTitle, String qaContents, String qaRegdate, int viewCount,
+	public BlogQADto(int qaNum, String qaWriter, String qaTitle, String qaContents, String qaRegdate, int qaViewCount,
 			int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.qaNum = qaNum;
@@ -24,7 +24,7 @@ public class BlogQADto {
 		this.qaTitle = qaTitle;
 		this.qaContents = qaContents;
 		this.qaRegdate = qaRegdate;
-		this.viewCount = viewCount;
+		this.qaViewCount = qaViewCount;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
 		this.prevNum = prevNum;
@@ -60,11 +60,11 @@ public class BlogQADto {
 	public void setQaRegdate(String qaRegdate) {
 		this.qaRegdate = qaRegdate;
 	}
-	public int getViewCount() {
-		return viewCount;
+	public int getQaViewCount() {
+		return qaViewCount;
 	}
-	public void setViewCount(int viewCount) {
-		this.viewCount = viewCount;
+	public void setQaViewCount(int qaViewCount) {
+		this.qaViewCount = qaViewCount;
 	}
 	public int getStartRowNum() {
 		return startRowNum;

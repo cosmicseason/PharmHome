@@ -21,20 +21,33 @@
 <jsp:include page="../../include/banner.jsp"/>
 
 <div class="container">
+	<a href="${pageContext.request.contextPath}/blog/qaInsertform.do">새글</a>
 	<div class="row">
-		<div class="col-xs-2">번호</div>
-		<div class="col-xs-5">작성자</div>
-		<div class="col-xs-3">제목</div>
-		<div class="col-xs-2">등록일</div>
-		<div class="col-xs-2">조회수</div>
-	</div>
-	
-	<div class="row">
-		<div class="col-xs-2"></div>
-		<div class="col-xs-5"></div>
-		<div class="col-xs-3"></div>
-		<div class="col-xs-2"></div>
-		<div class="col-xs-2"></div>
+		<div class="col-xs-10">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>작성자</th>
+						<th>제목</th>
+						<th>등록일</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
+			</table>
+			<tbody>
+				<c:forEach var="tmp" items="${qalist }">
+					<tr>
+						<td>${tmp.qaNum }</td>
+						<td>${tmp.qaWriter }</td>
+						<td>${tmp.qaTitle }</td>
+						<td>${tmp.qaRegdate }</td>
+						<td>${tmp.qaViewCount }</td>
+					</tr>
+				
+				</c:forEach>
+			</tbody>
+		</div>	
 	</div>
 </div>
 

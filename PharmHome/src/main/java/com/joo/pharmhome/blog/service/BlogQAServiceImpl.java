@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.joo.pharmhome.blog.dao.BlogQADao;
 import com.joo.pharmhome.blog.dto.BlogQADto;
@@ -29,6 +30,14 @@ public class BlogQAServiceImpl implements BlogQAService {
 		//view 페이지에서 필요한 값을 request에 담음
 		request.setAttribute("qalist", qalist);
 			
+	}
+
+	@Override
+	public void saveQaContents(BlogQADto qadto) {
+			
+		//DB에 입력받은 정보 저장
+		qadao.insertContents(qadto);
+
 	}
 	
 	
