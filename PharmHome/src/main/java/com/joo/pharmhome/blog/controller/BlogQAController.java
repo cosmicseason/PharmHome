@@ -28,12 +28,12 @@ public class BlogQAController {
 	}
 	
 	@RequestMapping("/blog/qaInsertform")
-	public String blogQaInsertform(){
+	public String authBlogQaInsertform(){
 		return "blog/QA/insertform";
 	}
 	
 	@RequestMapping(value="/blog/qaInsert", method=RequestMethod.POST)
-	public ModelAndView blogQaInsert(HttpServletRequest request, HttpSession session,
+	public ModelAndView authBlogQaInsert(HttpServletRequest request,
 			ModelAndView mView ,@ModelAttribute BlogQADto qadto){
 		//세션에 있는 글작성자의 아이디
 		String qaWriter=(String)request.getSession().getAttribute("userId");

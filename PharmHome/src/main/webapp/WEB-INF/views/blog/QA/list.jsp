@@ -34,19 +34,18 @@
 						<th>조회수</th>
 					</tr>
 				</thead>
+				<tbody>
+					<c:forEach var="tmp" items="${qalist }">
+						<tr>
+							<td>${tmp.qaNum }</td>
+							<td>${tmp.qaWriter }</td>
+							<td>${tmp.qaTitle }</td>
+							<td>${tmp.qaRegdate }</td>
+							<td>${tmp.qaViewCount }</td>
+						</tr>
+					</c:forEach>
+				</tbody>
 			</table>
-			<tbody>
-				<c:forEach var="tmp" items="${qalist }">
-					<tr>
-						<td>${tmp.qaNum }</td>
-						<td>${tmp.qaWriter }</td>
-						<td>${tmp.qaTitle }</td>
-						<td>${tmp.qaRegdate }</td>
-						<td>${tmp.qaViewCount }</td>
-					</tr>
-				
-				</c:forEach>
-			</tbody>
 		</div>	
 	</div>
 </div>
