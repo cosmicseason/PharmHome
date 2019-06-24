@@ -55,7 +55,7 @@
 <div class="container">
 	<div class="col-xs-10">
 		<c:if test="${userId eq qadto.qaWriter }">
-			<a href="${pageContext.request.contextPath}/blog/qaUpdateform.do?num=${qadto.qaNum}">수정</a>
+			<a href="${pageContext.request.contextPath}/blog/qaUpdateform.do?qanum=${qadto.qaNum}">수정</a>
 			<a href="javascript:">삭제</a>
 		</c:if>
 	</div>

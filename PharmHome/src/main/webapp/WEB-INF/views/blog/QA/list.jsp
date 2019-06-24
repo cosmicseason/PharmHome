@@ -39,7 +39,7 @@
 						<tr>
 							<td>${tmp.qaNum }</td>
 							<td>${tmp.qaWriter }</td>
-							<td><a href="${pageContext.request.contextPath}/blog/qaDetail.do?num=${tmp.qaNum }">${tmp.qaTitle }</a></td>
+							<td><a href="${pageContext.request.contextPath}/blog/qaDetail.do?qanum=${tmp.qaNum }">${tmp.qaTitle }</a></td>
 							<td>${tmp.qaRegdate }</td>
 							<td>${tmp.qaViewCount }</td>
 						</tr>

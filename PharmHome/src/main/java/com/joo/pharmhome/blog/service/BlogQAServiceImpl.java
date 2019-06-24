@@ -49,6 +49,14 @@ public class BlogQAServiceImpl implements BlogQAService {
 		//ModelAndView에 글 정보를 담는다.
 		mView.addObject("qadto", qadto);		
 	}
+
+	@Override
+	public void updateQaContents(BlogQADto qadto, HttpServletRequest request) {
+		int  qanum=Integer.parseInt(request.getParameter("num"));
+		qadto.setQaNum(qanum);
+		qadao.updateContents(qadto);
+		
+	}
 	
 	
 	

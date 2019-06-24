@@ -48,18 +48,27 @@ public class BlogQAController {
 	}
 	
 	@RequestMapping("/blog/qaDetail")
-	public ModelAndView authBlogQaDetail(@RequestParam int qanum, ModelAndView mView){
-		
-		qaservice.getDetail(qanum, mView );
+	public ModelAndView authBlogQaDetail(HttpServletRequest request, @RequestParam int qanum, ModelAndView mView){
+	
+		qaservice.getDetail(qanum, mView);
 		mView.setViewName("blog/QA/detail");
 		return mView;
 	}
 	
 	@RequestMapping("blog/qaUpdateform")
-	public ModelAndView authBlogQaUpdateform(@RequestParam int qanum, ModelAndView mView){
+	public ModelAndView authBlogQaUpdateform(HttpServletRequest request, @RequestParam int qanum, ModelAndView mView){
 		
 		qaservice.getDetail(qanum, mView);
 		mView.setViewName("blog/QA/updateform");
+		
+		return mView;
+	}
+	
+	@RequestMapping(value="blog/qaUpdate", method=RequestMethod.POST)
+	public ModelAndView authBlogQaUpdate(HttpServletRequest request, @ModelAttribute BlogQADto qadto, ModelAndView mView){
+		
+		qaservice.updateQaContents(qadto, request);
+		mView.setViewName("redirect:/blog/blogQaList.do");
 		
 		return mView;
 	}

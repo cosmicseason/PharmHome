@@ -29,8 +29,14 @@ public class BlogQADaoImpl implements BlogQADao {
 	}
 
 	@Override
-	public BlogQADto getData(int qaNum) {
+	public BlogQADto getData(int qanum) {
 		
-		return session.selectOne("blogQA.getData", qaNum) ;
+		return session.selectOne("blogQA.getData", qanum) ;
+	}
+
+	@Override
+	public void updateContents(BlogQADto qadto) {
+		session.update("blogQA.updateContents", qadto);
+		
 	}
 }

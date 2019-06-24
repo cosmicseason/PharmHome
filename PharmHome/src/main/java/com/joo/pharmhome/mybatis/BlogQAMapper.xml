@@ -15,5 +15,10 @@
 		FROM pharm_blog_qa
 		WHERE qaNum=#{qaNum}
 	</select>
+	<update id="updateContents" parameterType="qaDto">
+		UPDATE pharm_blog_qa
+		SET qaContents=#{qaContents}
+		WHERE qaNum=#{qaNum}
+	</update>
 
 </mapper>
