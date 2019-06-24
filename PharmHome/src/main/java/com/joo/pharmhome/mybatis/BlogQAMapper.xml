@@ -10,5 +10,10 @@
 		(qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount)
 		VALUES(pharm_blog_qa_seq.NEXTVAL, #{qaWriter}, #{qaTitle}, #{qaContents}, SYSDATE, #{qaViewCount})		
 	</insert>
+	<select id="getData" parameterType="int" resultType="qaDto">
+		SELECT qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount
+		FROM pharm_blog_qa
+		WHERE qaNum=#{qaNum}
+	</select>
 
 </mapper>

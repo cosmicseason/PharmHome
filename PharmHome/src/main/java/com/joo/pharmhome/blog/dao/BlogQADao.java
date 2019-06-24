@@ -7,4 +7,5 @@ import com.joo.pharmhome.blog.dto.BlogQADto;
 public interface BlogQADao {
 	public List<BlogQADto> getList(BlogQADto qadto);
 	public void insertContents(BlogQADto qadto);
+	public BlogQADto getData(int qaNum);
 }

@@ -39,6 +39,16 @@ public class BlogQAServiceImpl implements BlogQAService {
 		qadao.insertContents(qadto);
 
 	}
+
+	@Override
+	public void getDetail(int qanum, ModelAndView mView) { 
+		//선택한 글 정보를 저장할 BlogQADto 객체 생성
+		BlogQADto qadto = new BlogQADto();
+		//글 정보를 얻어와서
+		qadto = qadao.getData(qanum);
+		//ModelAndView에 글 정보를 담는다.
+		mView.addObject("qadto", qadto);		
+	}
 	
 	
 	

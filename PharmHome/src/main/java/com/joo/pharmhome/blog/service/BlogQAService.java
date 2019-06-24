@@ -9,4 +9,5 @@ import com.joo.pharmhome.blog.dto.BlogQADto;
 public interface BlogQAService {
 	public void getList(HttpServletRequest request);
 	public void saveQaContents(BlogQADto qadto);
+	public void getDetail(int qanum, ModelAndView mView);
 }

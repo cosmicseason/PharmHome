@@ -28,7 +28,7 @@ public class LoginAspect {
 		boolean isLogin=false;
 		HttpServletRequest request=null;
 		for(Object tmp:args){
-			//이자로 전달된 값중에 HttpServletRequest type을 찾아서
+			//인자로 전달된 값중에 HttpServletRequest type을 찾아서
 			if(tmp instanceof HttpServletRequest){
 				//원래 type으로 casting
 				request=(HttpServletRequest)tmp;
@@ -71,7 +71,7 @@ public class LoginAspect {
 				//HttpSession 객체 얻어내기 
 				HttpSession session=request.getSession();
 				//세션에 "id" 라는 키값으로 저장된게 있는지 확인(로그인 여부)
-				if(session.getAttribute("id") != null) {
+				if(session.getAttribute("userId") != null) {
 					isLogin=true;
 					System.out.println(isLogin);
 				}
@@ -104,5 +104,6 @@ public class LoginAspect {
 		//여기서 생성한 객체를 리턴해 준다. 
 		return mView;
 	}
+	
 }
 

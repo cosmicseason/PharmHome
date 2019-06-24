@@ -27,4 +27,10 @@ public class BlogQADaoImpl implements BlogQADao {
 		session.insert("blogQA.insertContents", qadto);
 		
 	}
+
+	@Override
+	public BlogQADto getData(int qaNum) {
+		
+		return session.selectOne("blogQA.getData", qaNum) ;
+	}
 }

@@ -79,4 +79,7 @@
 		<beans:property name="order" value="0"/>
 	</beans:bean>
 	
+	<!-- Annotation 기반으로 aop 를 적용하기 위한 설정 -->
+	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
 </beans:beans>
