@@ -23,23 +23,64 @@
 <!--blog-->
 <section id="blog" class="section-padding">
     <div class="container">
-      <div class="row">
-        <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="section-title">
-            <h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogQaList.do">Q&A</a></h2>
-            <hr class="botm-line">
-           	<!-- Q&A 게시판 게시글 제목 / 글쓴이 정도만 테이블로 보여주기 -->
-          </div>
-          <div class="col-md-3 col-sm-4 col-xs-12">
-          <div class="section-title">
-            <h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogStory.do">다녀간 이야기</a></h2>
-            <hr class="botm-line">
-            <!-- 손님들 평가 게시판 게시글 글쓴이/내용을 간략하게 테이블로 보여주기 -->
+    	<div class="row">
+    		<div class="col-md-6 col-sm-6 col-xs-12">
+    			<div class="section-title">
+    				<a class="head-title lg-line" href="${pageContext.request.contextPath}/blog/blogQaList.do">Q&A</a>
+            		<hr class="botm-line">
+	           		<!-- Q&A 게시판 게시글 제목 / 글쓴이 정도만 테이블로 보여주기 -->
+	           		<div class="row">
+				  		<div class="col-xs-12">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>번호</th>
+										<th>작성자</th>
+										<th>제목</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>2</td>
+										<td>3</td>
+									</tr>
+								</tbody>
+							</table>
+						</div><!-- Q&A 칼럼-->
+	      		</div><!-- Q&A 로우-->
+	      	 </div>	
+	      </div>	 
+          <div class="col-md-6 col-sm-6 col-xs-12">
+          	<div class="section-title">
+            	<h2 class="head-title lg-line"><a href="${pageContext.request.contextPath}/blog/blogStory.do">Story</a></h2>
+            	<hr class="botm-line">
+            	<!-- 손님들 평가 게시판 게시글 글쓴이/내용을 간략하게 테이블로 보여주기 -->
+            	<div class="row">
+			  		<div class="col-xs-12">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>번호</th>
+									<th>작성자</th>
+									<th>제목</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td>2</td>
+									<td>3</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+	      		</div>
           </div>
         </div>       
-      </div>
-    </div>
-  </section>
+     </div>
+   </div> 
+ </section>
   <!--/ about-->
   <!-- 하단메뉴 -->
 <jsp:include page="../include/footer.jsp"/>

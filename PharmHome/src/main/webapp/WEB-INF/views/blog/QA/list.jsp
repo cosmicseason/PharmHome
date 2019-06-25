@@ -12,16 +12,23 @@
 <title>Insert title here</title>
 
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
+
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+<style>
+	.container{
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+</style>
 </head>
 <body>
 <!-- 상단메뉴 -->
 <jsp:include page="../../include/banner.jsp"/>
 
 <div class="container">
-	<a href="${pageContext.request.contextPath}/blog/qaInsertform.do" class="btn btn-info">새글</a>
 	<div class="row">
 		<div class="col-xs-12">
 			<table class="table table-hover">
@@ -48,6 +55,7 @@
 			</table>
 		</div>	
 	</div>
+	<a href="${pageContext.request.contextPath}/blog/qaInsertform.do" class="btn btn-info">새글</a>
 </div>
 
 <!-- 하단메뉴 -->

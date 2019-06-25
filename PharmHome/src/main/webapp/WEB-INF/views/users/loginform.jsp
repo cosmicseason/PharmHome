@@ -22,10 +22,10 @@
 <!-- loginform -->
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12">
+		<div class="col-xs-12 col-xs-offset-4 ">
 			<form action="${pageContext.request.contextPath}/users/login.do" method="post">
 				<div class="row">
-				  <div class="form-group col-xs-12">
+				  <div class="form-group col-xs-4">
 				  	<input type="hidden" name="url" value="${url}" />
 				  </div>
 				</div>
@@ -49,7 +49,7 @@
 				  </div>
 				 </div><br/>
 				 <div class="row">
-				  <div class="col-xs-2">
+				  <div class="col-xs-4">
 				  	<a href="${pageContext.request.contextPath}/users/signupform.do" class="btn btn-info">SignUp</a>
 				  	<button type="submit" class="btn btn-primary">LogIn</button>
 				  </div>
