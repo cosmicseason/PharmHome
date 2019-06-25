@@ -57,6 +57,12 @@ public class BlogQAServiceImpl implements BlogQAService {
 		qadao.updateContents(qadto);
 		
 	}
+
+	@Override
+	public void deleteQaContents(int qanum) {
+		qadao.deleteContents(qanum);
+		
+	}
 	
 	
 	

@@ -22,14 +22,14 @@ public class UsersController {
 	@RequestMapping("/users/loginform")
 	public String usersLoginform(HttpServletRequest request){
 		
-		String url=request.getParameter("logformurl");
+		String url=request.getParameter("url");
 		//목적지 정보가 없을 경우 인덱스 페이지로 갈수 있도록
 		if(url == null){
 			String cPath= request.getContextPath();
 			url=cPath+"/";
 		}
 		
-		System.out.println(url);
+		System.out.println("url"+url);
 		
 		request.setAttribute("url", url);
 		
@@ -38,11 +38,24 @@ public class UsersController {
 	}
 
 	@RequestMapping(value="/users/login", method=RequestMethod.POST)
+
 	public ModelAndView usersLogin(HttpServletRequest request, HttpSession session, @ModelAttribute UsersDto dto, ModelAndView mView){
+		
+		String url=request.getParameter("url");
+		System.out.println("넘겨받은 url"+url);
 		//UserService를 이용해서 로그인 관련 비즈니스 로직 처리
 		 //입력받은 id와 pwd가 DB에 있는 id와 pwd가 일치하는지 검사
 		 //입력받은 id와 pwd가 DB와 같으면 session영역에 id값을 저장
 		service.validUser(session, dto, mView);
+		
+		
+		//목적지 정보가 없을 경우 인덱스 페이지로 갈수 있도록
+		if(url == null){
+			String cPath= request.getContextPath();
+			url=cPath+"/";
+		}
+				
+		mView.addObject("url", url);
 		mView.setViewName("users/login");
 		
 		return mView;

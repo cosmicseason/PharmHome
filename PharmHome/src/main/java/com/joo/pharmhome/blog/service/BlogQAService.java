@@ -11,4 +11,5 @@ public interface BlogQAService {
 	public void saveQaContents(BlogQADto qadto);
 	public void getDetail(int qanum, ModelAndView mView);
 	public void updateQaContents(BlogQADto qadto, HttpServletRequest request);
+	public void deleteQaContents(int qanum);
 }

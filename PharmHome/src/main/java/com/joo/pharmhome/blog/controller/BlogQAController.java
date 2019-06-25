@@ -72,4 +72,10 @@ public class BlogQAController {
 		
 		return mView;
 	}
+	
+	@RequestMapping("/blog/qaDelete")
+	public ModelAndView authBlogQaDelete(HttpServletRequest request, @RequestParam int num){
+		qaservice.deleteQaContents(num);
+		return new ModelAndView("redirect:/blog/blogQaList.do");
+	}
 }

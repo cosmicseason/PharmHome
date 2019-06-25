@@ -20,18 +20,44 @@
 <!-- 상단메뉴 -->
 <jsp:include page="../include/banner.jsp"/>
 <!-- loginform -->
-<form action="${pageContext.request.contextPath}/users/login.do" method="post">
-	<input type="hidden" name="logformurl" value="${url}" />
-	<label for="userId">ID</label>
-	<input type="text" name="userId" id="userId" />
-	<label for="userPwd">PASSWORD</label>
-	<input type="password" name="userPwd" id="userPwd" />
-	<button type="submit">로그인</button>
-	<span></span>
-</form>
-<a href="${pageContext.request.contextPath}/users/signupform.do"/>회원가입</a><br/>
-<a href="">아이디 찾기</a>
-<a href="">비밀번호 찾기</a>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<form action="${pageContext.request.contextPath}/users/login.do" method="post">
+				<div class="row">
+				  <div class="form-group col-xs-12">
+				  	<input type="hidden" name="url" value="${url}" />
+				  </div>
+				</div>
+				<div class="row">
+				  <div class="form-group col-xs-4">
+				    <label for="userId">ID</label>
+				    <input type="text" class="form-control" name="userId" id="userId"placeholder="Enter ID">
+				    <small id="emailHelp" class="form-text text-muted">correct ID!</small>
+				  </div>
+				</div>
+				<div class="row">
+				  <div class="form-group col-xs-4">
+				    <label for="userPwd">Password</label>
+				    <input type="password" class="form-control" name="userPwd" id="userPwd" placeholder="Password">
+				  </div>
+				 </div>
+				 <div class="row"> 
+				  <div class="form-check col-xs-4">
+				    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+				    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+				  </div>
+				 </div><br/>
+				 <div class="row">
+				  <div class="col-xs-2">
+				  	<a href="${pageContext.request.contextPath}/users/signupform.do" class="btn btn-info">SignUp</a>
+				  	<button type="submit" class="btn btn-primary">LogIn</button>
+				  </div>
+				 </div>
+				</form><br/><br/>			
+		</div>
+	</div>
+</div>
 <!-- 하단메뉴 -->
 <jsp:include page="../include/footer.jsp"/>
 </body>

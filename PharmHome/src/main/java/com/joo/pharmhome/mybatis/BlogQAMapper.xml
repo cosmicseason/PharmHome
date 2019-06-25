@@ -20,5 +20,9 @@
 		SET qaContents=#{qaContents}
 		WHERE qaNum=#{qaNum}
 	</update>
+	<delete id="deleteContents" parameterType="int">
+		DELETE FROM pharm_blog_qa
+		WHERE qaNum=#{qanum}
+	</delete>
 
 </mapper>

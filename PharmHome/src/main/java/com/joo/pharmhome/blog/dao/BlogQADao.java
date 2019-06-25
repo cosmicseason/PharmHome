@@ -9,4 +9,5 @@ public interface BlogQADao {
 	public void insertContents(BlogQADto qadto);
 	public BlogQADto getData(int qanum);
 	public void updateContents(BlogQADto qadto);
+	public void deleteContents(int qanum);
 }

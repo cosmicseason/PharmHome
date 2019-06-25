@@ -39,4 +39,10 @@ public class BlogQADaoImpl implements BlogQADao {
 		session.update("blogQA.updateContents", qadto);
 		
 	}
+
+	@Override
+	public void deleteContents(int qanum) {
+		session.delete("blogQA.deleteContents", qanum);
+		
+	}
 }

@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Candal">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
@@ -21,8 +22,9 @@
 <jsp:include page="../../include/banner.jsp"/>
 
 <div class="container">
-	<div class="col-xs-10">
-		<table class="table table-bordered table-condensed">
+	<div class="col-xs-12">
+		
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>글번호</th>
@@ -55,8 +57,11 @@
 <div class="container">
 	<div class="col-xs-10">
 		<c:if test="${userId eq qadto.qaWriter }">
-			<a href="${pageContext.request.contextPath}/blog/qaUpdateform.do?qanum=${qadto.qaNum}">수정</a>
-			<a href="javascript:">삭제</a>
+			<a href="${pageContext.request.contextPath}/blog/qaUpdateform.do?qanum=${qadto.qaNum}" class="btn btn-info">수정</a>
+			<a href="javascript:deleteConfirm(${qadto.qaNum})">
+				<i class="glyphicon glyphicon-trash"></i>
+				<span class="sr-only">삭제</span>
+			</a>
 		</c:if>
 	</div>
 </div>		
@@ -64,19 +69,14 @@
 	
 <!-- 하단메뉴 -->
 <jsp:include page="../../include/footer.jsp"/>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.js"></script>
-<script>
-	//폼에 submit 이벤트가 일어 났을때 실행할 함수 등록 
-	$(".comments form").on("submit", function(){
-		//로그인 여부
-		var isLogin=${not empty userId};
-		if(isLogin==false){
-			alert("로그인 페이지로 이동 합니다.");
-			location.href="${pageContext.request.contextPath}/users/loginform.do?url=${pageContext.request.contextPath}/blog/qaDetail.do";
-			return false;//폼 전송 막기 
-		}
-	});
 
+<script>
+	function deleteConfirm(num){
+		var isDelete=confirm(num+" 번 글을 삭제 하시겠습니까?");
+		if(isDelete){
+			location.href="${pageContext.request.contextPath}/blog/qaDelete.do?num="+num;
+		}
+	}
 </script>
 </body>
 

@@ -98,8 +98,7 @@ public class LoginAspect {
 		//ModelAndView 객체를 생성해서 	
 		ModelAndView mView=new ModelAndView();
 		//로그인 폼으로 리다일렉트 시키도록 view page 설정
-		mView.setViewName
-		("redirect:/users/loginform.do?url="+encodedUrl);
+		mView.setViewName("redirect:/users/loginform.do?url="+encodedUrl);
 		
 		//여기서 생성한 객체를 리턴해 준다. 
 		return mView;

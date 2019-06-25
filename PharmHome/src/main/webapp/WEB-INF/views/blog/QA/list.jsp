@@ -21,10 +21,10 @@
 <jsp:include page="../../include/banner.jsp"/>
 
 <div class="container">
-	<a href="${pageContext.request.contextPath}/blog/qaInsertform.do">새글</a>
+	<a href="${pageContext.request.contextPath}/blog/qaInsertform.do" class="btn btn-info">새글</a>
 	<div class="row">
-		<div class="col-xs-10">
-			<table class="table table-bordered">
+		<div class="col-xs-12">
+			<table class="table table-hover">
 				<thead>
 					<tr>
 						<th>번호</th>
@@ -39,7 +39,7 @@
 						<tr>
 							<td>${tmp.qaNum }</td>
 							<td>${tmp.qaWriter }</td>
-							<td><a href="${pageContext.request.contextPath}/blog/qaDetail.do?qanum=${tmp.qaNum }">${tmp.qaTitle }</a></td>
+							<td><a href="${pageContext.request.contextPath}/blog/qaDetail.do?qanum=${tmp.qaNum }&url=${pageContext.request.contextPath}/blog/qaDetail.do">${tmp.qaTitle }</a></td>
 							<td>${tmp.qaRegdate }</td>
 							<td>${tmp.qaViewCount }</td>
 						</tr>
