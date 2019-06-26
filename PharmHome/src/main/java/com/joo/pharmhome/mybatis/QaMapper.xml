@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="blogQA">
+<mapper namespace="qa">
 	<select id="getList" parameterType="qaDto" resultType="qaDto">
-		SELECT qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount
-		FROM pharm_blog_qa
+		SELECT *
+		FROM	
+    		(SELECT result1.*, ROWNUM AS rnum
+     		 FROM
+	    		(SELECT qaNum, qaWriter, qaTitle, qaContents, TO_CHAR(qaRegdate, 'YY.MM.DD HH24:MI') AS qaRdgdate, qaViewCount
+	     		 FROM pharm_qa)result1)
+		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
+	</select>
+	<select id="getCount" resultType="int">
+		SELECT NVL(MAX(ROWNUM), 0)
+		FROM pharm_qa
 	</select>
 	<insert id="insertContents" parameterType="qaDto">
-		INSERT INTO pharm_blog_qa
+		INSERT INTO pharm_qa
 		(qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount)
-		VALUES(pharm_blog_qa_seq.NEXTVAL, #{qaWriter}, #{qaTitle}, #{qaContents}, SYSDATE, #{qaViewCount})		
+		VALUES(pharm_qa_seq.NEXTVAL, #{qaWriter}, #{qaTitle}, #{qaContents}, SYSDATE, #{qaViewCount})		
 	</insert>
 	<select id="getData" parameterType="int" resultType="qaDto">
 		SELECT qaNum, qaWriter, qaTitle, qaContents, qaRegdate, qaViewCount
-		FROM pharm_blog_qa
-		WHERE qaNum=#{qaNum}
+		FROM pharm_qa
+		WHERE qaNum=#{num}
 	</select>
 	<update id="updateContents" parameterType="qaDto">
-		UPDATE pharm_blog_qa
+		UPDATE pharm_qa
 		SET qaContents=#{qaContents}
 		WHERE qaNum=#{qaNum}
 	</update>
 	<delete id="deleteContents" parameterType="int">
-		DELETE FROM pharm_blog_qa
-		WHERE qaNum=#{qanum}
+		DELETE FROM pharm_qa
+		WHERE qaNum=#{num}
 	</delete>
 
 </mapper>

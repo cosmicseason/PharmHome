@@ -25,18 +25,22 @@
 	}
 </style>
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <!-- 상단메뉴 -->
-<jsp:include page="../../include/banner.jsp"/>
-
+<jsp:include page="../include/banner.jsp"/>
 <div class="container">
-	<h3>카페 새글 작성 폼 입니다.</h3>
-	<form id="insertForm" action="${pageContext.request.contextPath}/blog/qaInsert.do" method="post">
+	<h3>카페 글 수정 폼 입니다.</h3>
+	<form action="${pageContext.request.contextPath}/qa/update.do?num=${qadto.qaNum}" method="post">
+		<%-- 폼 제출할때 글번호도 전송되게 하기 위해 --%>
+		<input type="hidden" name="qaNum" value="${qadto.qaNum }" />
+		<label for="qaNum">글번호</label>
+		<input type="text" id="qaNum" value="${qadto.qaNum }"  disabled="disabled"/>
+		<br/>
 		<label for="qaTitle">제목</label>
-		<input type="text" name="qaTitle" id="qaTitle" />
+		<input type="text" name="qaTitle" id="qaTitle" value="${qadto.qaTitle }" />
 		<br/>
 		<label for="qaContents">내용</label>
-		<textarea name="qaContents" id="qaContents"></textarea>
+		<textarea name="qaContents" id="qaContents">${qadto.qaContents }</textarea>
 		<div>
 			<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
 			<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
@@ -46,7 +50,7 @@
 	</form>
 </div>
 <!-- 하단메뉴 -->
-	<jsp:include page="../../include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 <!-- SmartEditor 에서 필요한 javascript 로딩  -->
 <script src="${pageContext.request.contextPath }/SmartEditor/js/HuskyEZCreator.js"></script>
 <script>
@@ -100,7 +104,7 @@
 		var nFontSize = 24;
 		oEditors.getById["qaContents"].setDefaultFont(sDefaultFont, nFontSize);
 	}
-	
 </script>
+
 </body>
 </html>

@@ -17,9 +17,9 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <!-- 상단메뉴 -->
-<jsp:include page="../../include/banner.jsp"/>
+<jsp:include page="../include/banner.jsp"/>
 
 <div class="container">
 	<div class="col-xs-12">
@@ -57,10 +57,9 @@
 <div class="container">
 	<div class="col-xs-10">
 		<c:if test="${userId eq qadto.qaWriter }">
-			<a href="${pageContext.request.contextPath}/blog/qaUpdateform.do?qanum=${qadto.qaNum}" class="btn btn-info">수정</a>
-			<a href="javascript:deleteConfirm(${qadto.qaNum})">
-				<i class="glyphicon glyphicon-trash"></i>
-				<span class="sr-only">삭제</span>
+			<a href="${pageContext.request.contextPath}/qa/updateform.do?num=${qadto.qaNum}" class="btn btn-info">수정</a> 
+			<a href="javascript:deleteConfirm(${qadto.qaNum})" class="btn btn-info">
+				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>삭제
 			</a>
 		</c:if>
 	</div>
@@ -68,13 +67,13 @@
 	
 	
 <!-- 하단메뉴 -->
-<jsp:include page="../../include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 <script>
 	function deleteConfirm(num){
 		var isDelete=confirm(num+" 번 글을 삭제 하시겠습니까?");
 		if(isDelete){
-			location.href="${pageContext.request.contextPath}/blog/qaDelete.do?num="+num;
+			location.href="${pageContext.request.contextPath}/qa/delete.do?num="+num;
 		}
 	}
 </script>

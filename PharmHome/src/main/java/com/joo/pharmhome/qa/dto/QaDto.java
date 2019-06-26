@@ -1,6 +1,6 @@
-package com.joo.pharmhome.blog.dto;
+package com.joo.pharmhome.qa.dto;
 
-public class BlogQADto {
+public class QaDto {
 	private int qaNum;
 	private String qaWriter;
 	private String qaTitle;
@@ -15,8 +15,8 @@ public class BlogQADto {
 	private int prevNum;
 	private int nextNum;
 	//생성자
-	public BlogQADto(){}
-	public BlogQADto(int qaNum, String qaWriter, String qaTitle, String qaContents, String qaRegdate, int qaViewCount,
+	public QaDto(){}
+	public QaDto(int qaNum, String qaWriter, String qaTitle, String qaContents, String qaRegdate, int qaViewCount,
 			int startRowNum, int endRowNum, int prevNum, int nextNum) {
 		super();
 		this.qaNum = qaNum;

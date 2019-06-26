@@ -16,7 +16,7 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
-<body>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 <!-- 상단메뉴 -->
 <jsp:include page="../include/banner.jsp"/>
 <div class="container">

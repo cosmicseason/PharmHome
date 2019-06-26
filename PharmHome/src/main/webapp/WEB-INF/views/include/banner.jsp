@@ -16,20 +16,13 @@
 				      </button>
               <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/resources/img/logo.png" class="img-responsive" style="width: 140px; margin-top: -16px;"></a>
             </div>
-            <div class="collapse navbar-collapse navbar-right" id="navbarSupportedContent">
-              <ul class="nav navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="${pageContext.request.contextPath}/home.do">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/about/about.do">About</a></li>
-                <!-- dropdown navbar error -->
-                <li class="nav-item dropdown">
-	                <a  class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/blog/blog.do" id="navbarDropdown" role="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">blog</a>
-	                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" >
-			          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogQA.do">Q&A</a>
-			          <div class="dropdown-divider"></div>
-			          <a class="dropdown-item" href="${pageContext.request.contextPath}/blog/blogStory.do">Story</a>
-			        </div>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/contact/contact.do">Contact</a></li>
+            <div class="collapse navbar-collapse navbar-right" id="myNavbar">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="${pageContext.request.contextPath}/home.do">Home</a></li>
+                <li><a href="${pageContext.request.contextPath}/about/about.do">About</a></li>
+                <li><a href="${pageContext.request.contextPath}/blog/list.do">blog</a></li>
+                <li><a href="${pageContext.request.contextPath}/qa/list.do">Q&A</a></li>
+                <li><a href="${pageContext.request.contextPath}/contact/contact.do">Contact</a></li>
               </ul>
             </div>
           </div>

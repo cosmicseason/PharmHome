@@ -35,37 +35,31 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public void validUser(HttpSession session, UsersDto dto, ModelAndView mView) {
 		//입력된 아이디를 변수에 담는다.
-		String inputId = dto.getUserId();
-		
+		String id = dto.getUserId();
 		//입력된 비밀번호를 변수에 담는다.
-		String inputPwd = dto.getUserPwd();
-		System.out.println(inputPwd);
+		String pwd = dto.getUserPwd();
+		
 		//아이디 비밀번호가 유효한지 여부
 		boolean isValid=false;
-		
 		//입력받은 id를 이용하여 DB에 저장된 회원정보를 읽어온다.
-		UsersDto usersDto =usersDao.getData(inputId);
+		UsersDto usersDto =usersDao.getData(id);
 		//DB에 저장된 비밀번호를 변수에 담는다.
 		
 		String pwdHash = usersDto.getUserPwd();
-		System.out.println(pwdHash);
 		
 		if(pwdHash!= null){//입력된 패스워드가 DB에 존재 하면
 			//비밀번호가 일치하는지 여부를 isValid 에 대입한다.
-			isValid=BCrypt.checkpw(inputPwd, pwdHash);
-			System.out.println(isValid);
+			isValid=BCrypt.checkpw(pwd, pwdHash);
+	
 		}
-		
 		if(isValid){//아이디 비밀번호가 일치하면
 			//세션영역에 아이디를 저장하고
-			session.setAttribute("userId", inputId);
+			session.setAttribute("userId", id);
 			//로그인 성공 여부를 ModelAndView 객체에 담는다.
 			mView.addObject("isSuccess", true);
 		}else{//아이디 혹은 비밀번호가 틀린경우
 			mView.addObject("isSuccess", false);
 		}
-		
 	}
-
-	
+		
 }
