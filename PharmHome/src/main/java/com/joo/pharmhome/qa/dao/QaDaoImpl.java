@@ -16,7 +16,8 @@ public class QaDaoImpl implements QaDao {
 	@Override
 	public List<QaDto> getList(QaDto qadto) {
 		
-		List<QaDto> qalist = session.selectList("qa.getList", qadto);		
+		List<QaDto> qalist = session.selectList("qa.getList", qadto);	
+		
 		return qalist;
 	}
 
@@ -43,6 +44,11 @@ public class QaDaoImpl implements QaDao {
 	@Override
 	public int getCountContents() {
 		return session.selectOne("qa.getCount");
+	}
+
+	@Override
+	public void addViewCount(int num) {
+		session.update("qa.addViewCount",num);
 	}
 
 }

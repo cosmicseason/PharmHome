@@ -11,4 +11,5 @@ public interface QaDao {
 	public void updateContents(QaDto qadto);
 	public void deleteContents(int num);
 	public int getCountContents();
+	public void addViewCount(int num);
 }

@@ -43,7 +43,7 @@ public class QaServiceImpl implements QaService {
 		//전체 row의 갯수를 읽어온다.
 		int totalRow=qadao.getCountContents();
 		//전체 페이지의 갯수 구하기
-		int totalPageCount=(int)Math.ceil((double)(totalRow/PAGE_ROW_COUNT));
+		int totalPageCount=(int)Math.ceil(totalRow/(double)PAGE_ROW_COUNT);
 		//시작 페이지 번호
 		int startPageNum=1+((pageNum-1)/PAGE_DISPLAY_COUNT)*PAGE_DISPLAY_COUNT;
 		//끝 페이지 번호
@@ -79,6 +79,8 @@ public class QaServiceImpl implements QaService {
 	public void getDetail(int num, ModelAndView mView) {
 		//선택한 글 정보를 저장할 BlogQADto 객체 생성
 		QaDto qadto = new QaDto();
+		//조회수 1 증가 시키기
+		qadao.addViewCount(num);
 		//글 정보를 얻어와서
 		qadto = qadao.getData(num);
 		//ModelAndView에 글 정보를 담는다.

@@ -6,7 +6,7 @@
 		FROM	
     		(SELECT result1.*, ROWNUM AS rnum
      		 FROM
-	    		(SELECT qaNum, qaWriter, qaTitle, qaContents, TO_CHAR(qaRegdate, 'YY.MM.DD HH24:MI') AS qaRdgdate, qaViewCount
+	    		(SELECT qaNum, qaWriter, qaTitle, qaContents, TO_CHAR(qaRegdate, 'YY.MM.DD HH24:MI') AS qaRegdate, qaViewCount
 	     		 FROM pharm_qa)result1)
 		WHERE rnum BETWEEN #{startRowNum} AND #{endRowNum}
 	</select>
@@ -33,5 +33,9 @@
 		DELETE FROM pharm_qa
 		WHERE qaNum=#{num}
 	</delete>
-
+	<update id="addViewCount" parameterType="int">
+		UPDATE pharm_qa
+		SET qaViewCount=qaViewCount+1
+		WHERE qaNum=#{num}
+	</update>
 </mapper>

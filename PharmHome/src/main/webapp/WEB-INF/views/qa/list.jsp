@@ -32,49 +32,82 @@
 	<div class="row">
 		<div class="col-md-6 col-sm-6 col-xs-12">
          	<div class="section-title">
-           	<h2 class="head-title lg-line">Q&A</h2>
-           	<hr class="botm-line">
-           	<div class="row">
-				<div class="col-xs-12">
-					<table class="table table-hover">
-						<thead>
+	           	<h2 class="head-title lg-line">Q&A</h2>
+	           	<hr class="botm-line">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>번호</th>
+							<th>작성자</th>
+							<th>제목</th>
+							<th>등록일</th>
+							<th>조회수</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var="tmp" items="${qalist }">
 							<tr>
-								<th>번호</th>
-								<th>작성자</th>
-								<th>제목</th>
-								<th>등록일</th>
-								<th>조회수</th>
+								<td>${tmp.qaNum }</td>
+								<td>${tmp.qaWriter }</td>
+								<td><a href="${pageContext.request.contextPath}/qa/detail.do?num=${tmp.qaNum }&url=${pageContext.request.contextPath}/qa/detail.do">${tmp.qaTitle }</a></td>
+								<td>${tmp.qaRegdate }</td>
+								<td>${tmp.qaViewCount }</td>
 							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="tmp" items="${qalist }">
-								<tr>
-									<td>${tmp.qaNum }</td>
-									<td>${tmp.qaWriter }</td>
-									<td><a href="${pageContext.request.contextPath}/qa/detail.do?num=${tmp.qaNum }&url=${pageContext.request.contextPath}/qa/detail.do">${tmp.qaTitle }</a></td>
-									<td>${tmp.qaRegdate }</td>
-									<td>${tmp.qaViewCount }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-					<!-- 페이지 처리 -->
-					<div class="page-display">
-						<ul class="pageination">
-							<c:choose>
+						</c:forEach>
+					</tbody>
+				</table>
+				<!-- 페이지 처리 -->
+				<div class="container">
+					<nav aria-label="Page navigation">
+						  <ul class="pagination" style="margin-left:105px;">
+						    <c:choose>
 								<c:when test="${startPageNum ne 1 }">
-									<li>
-										<a href="${pageContext.request.contextPath}/"></a>
-									</li>
+								    <li>
+								      <a href="${pageContext.request.contextPath}/qa/list.do?pageNum=${startPageNum-1}" aria-label="Previous">
+								        <span aria-hidden="true">&laquo;</span>
+								      </a>
+								    </li>
 								</c:when>
+								<c:otherwise>
+									<li class="disabled">
+								      <a href="javascript:" aria-label="Previous">
+								        <span aria-hidden="true">&laquo;</span>
+								      </a>
+								    </li>
+								</c:otherwise>
 							</c:choose>
-						</ul>
-					</div>
-				</div>
+							<c:forEach var="i" begin="${startPageNum }" end="${endPageNum }" step="1">
+								<c:choose>
+									<c:when test="${i eq pageNum }">
+									    <li class="active"><a href="${pageContext.request.contextPath}/qa/list.do?pageNum=${i}">${i}</a></li>
+									</c:when>
+									<c:otherwise> 
+										<li><a href="${pageContext.request.contextPath}/qa/list.do?pageNum=${i}">${i}</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+							<c:choose>
+								<c:when test="${endPageNum lt totalPageCount }">   
+								    <li>
+								      <a href="${pageContext.request.contextPath}/qa/list.do?pageNum=${endPageNum+1}" aria-label="Next">
+								        <span aria-hidden="true">&raquo;</span>
+								      </a>
+								    </li>
+								</c:when>
+								<c:otherwise>
+									<li class="disabled">
+								      <a href="javascript:" aria-label="Next">
+								        <span aria-hidden="true">&raquo;</span>
+								      </a>
+								    </li>
+								</c:otherwise>
+							</c:choose>	    
+						  </ul>
+					</nav>
+				</div>	
 			</div>
-		</div>
-	</div>					
-</div>
+		</div>					
+	</div>
 	<a href="${pageContext.request.contextPath}/qa/insertform.do" class="btn btn-info">새글</a>
 </div>
 

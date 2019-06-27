@@ -21,48 +21,59 @@
 <!-- 상단메뉴 -->
 <jsp:include page="../include/banner.jsp"/>
 
-<div class="container">
+<div class="container" style="margin-top:40px; margin-bottom:30px;">
 	<div class="col-xs-12">
-		
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<th>글번호</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>조회수</th>
-					<th>등록일</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>${qadto.qaNum }</td>
-					<td>${qadto.qaTitle }</td>
-					<td>${qadto.qaWriter }</td>
-					<td>${qadto.qaViewCount }</td>
-					<td>${qadto.qaRegdate }</td>
-				</tr>
-			</tbody>
-		</table>
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">NUM</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">${qadto.qaNum }</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">TITLE</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">${qadto.qaTitle }</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">WRITER</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">${qadto.qaWriter }</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">COUNT</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">${qadto.qaViewCount }</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">DATE</label>
+				<div class="col-sm-10">
+					<p class="form-control-static">${qadto.qaRegdate }</p>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="qacontents" class="col-sm-2 control-label">Q:</label>
+				<div class="col-sm-10">
+					<textarea class="form-control" id="qacontents" rows="10" disabled>${qadto.qaContents}</textarea>
+				</div>
+			</div>
+		</form>
 	</div>
-</div>
-
-<div class="container">
-	<div class="col-xs-10">
-		<div class="qaContents">${qadto.qaContents }</div>
-	</div>
-</div>
-
-<%-- 로그인된 아이디와 글 작성자가 같은 경우 수정,삭제 --%>
-<div class="container">
-	<div class="col-xs-10">
+	<%-- 로그인된 아이디와 글 작성자가 같은 경우 수정,삭제 --%>
+	<div class="col-xs-offset-10">
 		<c:if test="${userId eq qadto.qaWriter }">
 			<a href="${pageContext.request.contextPath}/qa/updateform.do?num=${qadto.qaNum}" class="btn btn-info">수정</a> 
-			<a href="javascript:deleteConfirm(${qadto.qaNum})" class="btn btn-info">
-				<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>삭제
-			</a>
+			<a href="javascript:deleteConfirm(${qadto.qaNum})" class="btn btn-info">삭제</a>
+			<a href="${pageContext.request.contextPath}/qa/list.do" class="btn btn-primary">목록</a>
 		</c:if>
 	</div>
+</div>
+
+<div class="container" style="margin-bottom: 40px;">
+	
 </div>		
 	
 	
