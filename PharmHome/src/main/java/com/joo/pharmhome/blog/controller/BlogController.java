@@ -7,9 +7,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BlogController {
 	
-	@RequestMapping("/blog/blog")
+	@RequestMapping("/blog/list")
 	public String blogList(){
-		return "blog/blog";
+		return "blog/bloglist";
 	}
 	
 

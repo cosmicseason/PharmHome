@@ -26,44 +26,44 @@
 		<form class="form-horizontal">
 			<div class="form-group">
 				<label class="col-sm-2 control-label">NUM</label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<p class="form-control-static">${qadto.qaNum }</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">TITLE</label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<p class="form-control-static">${qadto.qaTitle }</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">WRITER</label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<p class="form-control-static">${qadto.qaWriter }</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">COUNT</label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<p class="form-control-static">${qadto.qaViewCount }</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">DATE</label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<p class="form-control-static">${qadto.qaRegdate }</p>
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="qacontents" class="col-sm-2 control-label">Q:</label>
-				<div class="col-sm-10">
+				<div class="col-sm-9">
 					<textarea class="form-control" id="qacontents" rows="10" disabled>${qadto.qaContents}</textarea>
 				</div>
 			</div>
 		</form>
 	</div>
 	<%-- 로그인된 아이디와 글 작성자가 같은 경우 수정,삭제 --%>
-	<div class="col-xs-offset-10">
+	<div class="col-xs-offset-9">
 		<c:if test="${userId eq qadto.qaWriter }">
 			<a href="${pageContext.request.contextPath}/qa/updateform.do?num=${qadto.qaNum}" class="btn btn-info">수정</a> 
 			<a href="javascript:deleteConfirm(${qadto.qaNum})" class="btn btn-info">삭제</a>
@@ -72,8 +72,46 @@
 	</div>
 </div>
 
-<div class="container" style="margin-bottom: 40px;">
-	
+<!-- 댓글 보기 폼 -->
+<div class="container">
+	<div class="col-xs-11">
+		<form class="form-horizontal">
+			<div class="form-group ">
+				<label for="qacomment" class="col-sm-offset-4 control-label">A:</label>
+				<div class="col-xs-offset-4">
+					<textarea class="form-control" id="qacomment" rows="3" disabled>답글</textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-- 댓글 등록 폼 -->
+<div class="container" style="margin-bottom:30px;">
+	<div class="col-xs-11">
+		<form class="form-horizontal" action="${pageContext.request.contextPath}/qa/comment_insert.do" >
+			<div class="form-group ">
+				<!-- 댓글의 그룹번호는 원글의 글번호 -->
+				<label for="ref_group" class="col-xs-offset-4 control-label"></label>
+				<div class="col-sm-offset-4">
+					<input type="hidden" name="ref_group" id="ref_group" value="${dto.num }"/>
+				</div>
+			</div>
+			<div class="form-group ">
+				<!-- 댓글의 대상자는 원글의 작성자 -->
+				<label for="target_id" class="col-xs-offset-4 control-label">Comment</label>
+				<div class="col-xs-offset-4">
+					<input type="hidden" name="target_id" id="target_id" value="${dto.writer }"/>
+					<textarea class="form-control" name="commendANW">
+						<c:if test="${empty id }">로그인이 필요합니다.</c:if>
+					</textarea>
+				</div>
+			</div>
+			<div class="col-xs-offset-11">
+				<button type="submit" class="btn btn-primary">등록</button>
+			</div>
+		</form>
+	</div>
 </div>		
 	
 	

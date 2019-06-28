@@ -99,4 +99,19 @@ public class QaServiceImpl implements QaService {
 		qadao.deleteContents(num);	
 	}
 
+	@Override
+	public void saveComment(HttpServletRequest request) {
+		//댓글 작성자
+		String writer=(String)request.getSession().getAttribute("id");
+		//댓글의 그룹번호
+		int ref_group=Integer.parseInt(request.getParameter("ref_group"));
+		//댓글의 대상자 아이디
+		String target_id=request.getParameter("target_id");
+		//댓글의 내용
+		String content=request.getParameter("commendANW");
+		//댓글 내에서의 그룹번호 (null 이면 원글의 댓글이다)
+		String comment_group=request.getParameter("comment_group");
+		
+	}
+
 }

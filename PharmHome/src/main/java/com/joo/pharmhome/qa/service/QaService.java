@@ -12,4 +12,5 @@ public interface QaService {
 	public void getDetail(int num, ModelAndView mView);
 	public void updateQaContents(QaDto qadto, HttpServletRequest request);
 	public void deleteQaContents(int num);
+	public void saveComment(HttpServletRequest request);
 }

@@ -1,5 +1,8 @@
 package com.joo.pharmhome.qa.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.joo.pharmhome.qa.dto.QaCommentDto;
 import com.joo.pharmhome.qa.dto.QaDto;
 import com.joo.pharmhome.qa.service.QaService;
 
@@ -78,5 +83,15 @@ public class QaController {
 		
 		qaservice.deleteQaContents(num);
 		return new ModelAndView("redirect:/qa/list.do");
+	}
+	
+	@RequestMapping(value="/qa/comment_insert", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> authCommentInsert(HttpServletRequest request, @ModelAttribute QaCommentDto qacmddto){
+		
+		//qacmdservice.
+		Map<String, Object> map=new HashMap<>();
+		map.put("isSuccess", true);
+		return map;
 	}
 }
